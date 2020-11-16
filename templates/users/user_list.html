@@ -1,8 +1,7 @@
-{% extends 'layout/main.html' %}
+{% extends 'layout/base.html' %}
 
 {% block content %}
 
-    <button type="button" class="btn btn-primary">Primary</button>
     {% if object_list %}
         <ul>
         {% for user in object_list %}
