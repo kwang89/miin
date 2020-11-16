@@ -1,9 +1,16 @@
-{% if object_list %}
-    <ul>
-    {% for user in object_list %}
-        <li><a href="{% url 'users:user-detail' user.id %}">{{ user.user_phone_num }}</a> {{ user }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>사용자가 없습니다.</p>
-{% endif %}
+{% extends 'layout/main.html' %}
+
+{% block content %}
+
+    <button type="button" class="btn btn-primary">Primary</button>
+    {% if object_list %}
+        <ul>
+        {% for user in object_list %}
+            <li><a href="{% url 'users:user-detail' user.id %}">{{ user.user_phone_num }}</a> {{ user }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>사용자가 없습니다.</p>
+    {% endif %}
+
+{% endblock %}
