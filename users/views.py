@@ -1,6 +1,4 @@
-from django.shortcuts import render
 from django.views import generic
-
 from .models import User
 
 
@@ -9,9 +7,7 @@ class ListView(generic.ListView):
     #  template_name = 'users/user_list.html'  # 디폴트 템플릿명: <app_label>/<model_name>_list.html
     #  context_object_name = 'question_list'  # 디폴트 컨텍스트 변수명 :  object_list. html파일과 맵핑되는 변수명
     #  paginate_by = 10 # 한 페이지에 보여줄 오브젝트의 갯수
-    def get_queryset(self):
-        return User.objects.all()
-
+    model = User
 
 class DetailView(generic.DetailView):
     """
@@ -20,5 +16,4 @@ class DetailView(generic.DetailView):
         2) 템플릿 파일 : user_detail.html (모델명소문자_detail.html)
         3) context_object_name = 'user' # 디폴트 컨텍스트 변수명 :  object
     """
-
     model = User # 해당 모델 - URLConf 의 PK 변수를 활용하여 해당 모델의 특정 record를 담는다.
